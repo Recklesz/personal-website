@@ -18,10 +18,14 @@ function Navbar() {
     const handleScroll = () => {
       const y = window.scrollY;
       const heroHeight = window.innerHeight;
+      const isMobile = window.innerWidth < 768;
       
-      if (y < 100) {
+      // On mobile, wait until we are past the Hero text (around 70% down)
+      const showThreshold = isMobile ? heroHeight * 0.7 : 100;
+      
+      if (y < showThreshold) {
         setScrollState('top');
-      } else if (y >= 100 && y < heroHeight - 100) {
+      } else if (y >= showThreshold && y < heroHeight - 100) {
         setScrollState('hero');
       } else {
         setScrollState('past');
@@ -86,7 +90,7 @@ function ModuleOne() {
   return (
     <section className="relative min-h-screen bg-background py-32 px-12 md:px-24">
       <div className="max-w-[1600px] mx-auto asymmetric-grid gap-24 items-center">
-        <div className="relative group overflow-hidden">
+        <div className="relative group overflow-hidden order-2 md:order-1">
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full"></div>
           <div className="relative overflow-hidden aspect-[3/4] bg-black">
             {/* Base Grayscale Image */}
@@ -117,7 +121,7 @@ function ModuleOne() {
             <div className="grainy-overlay pointer-events-none"></div>
           </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center order-1 md:order-2">
           <span className="font-label text-secondary text-[10px] tracking-[0.3em] uppercase mb-8 block opacity-80">Module 01</span>
           <h2 className="font-headline text-5xl md:text-7xl font-light leading-tight text-on-surface mb-8">
             Skylar:<br/>The Art of <span className="italic text-primary text-glow-warm">Conversation</span>
@@ -160,7 +164,7 @@ function ModuleTwo() {
   return (
     <section className="relative min-h-screen bg-surface py-32 px-12 md:px-24">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-        <div className="order-2 md:order-1 flex flex-col justify-center md:items-end md:text-right">
+        <div className="order-1 md:order-1 flex flex-col justify-center md:items-end md:text-right">
           <span className="font-label text-secondary text-[10px] tracking-[0.3em] uppercase mb-8 block opacity-80">Module 02</span>
           <h2 className="font-headline text-5xl md:text-7xl font-light leading-tight text-on-surface mb-8">
             Describy:<br/>The Art of <span className="italic text-secondary text-glow-cool">Listening</span>
@@ -192,7 +196,7 @@ function ModuleTwo() {
             </a>
           </div>
         </div>
-        <div className="relative group order-1 md:order-2 overflow-hidden">
+        <div className="relative group order-2 md:order-2 overflow-hidden">
           <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-primary/5 blur-[100px] rounded-full"></div>
           <div className="relative overflow-hidden aspect-[4/5] bg-black">
             {/* Base Grayscale Image */}
