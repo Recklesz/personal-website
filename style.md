@@ -13,9 +13,9 @@
 - **Muted States**: Grayscale by default, transitioning to full color to signify "activation" or "human connection."
 
 ## Typography
-- **Headings**: Bold, high-impact sans-serif (Inter/Space Grotesk) with tight tracking.
-- **Body**: Clean, legible sans-serif with generous line height.
-- **Micro-labels**: Monospace for technical data points, often in uppercase with wide tracking.
+- **Headings**: Noto Serif — even-stroked serif for titles, section headings, navbar, and the "THE CRAFT" watermark. Light weight for elegant section titles and nav; black weight for hero title and watermark.
+- **Body & Labels**: Space Grotesk — geometric sans-serif for body text, labels, links, CTAs, and all functional text. Uppercase with wide tracking for labels and micro-copy.
+- **Why these fonts**: Noto Serif's even strokes degrade gracefully under the hero's blur-reveal animation — high-contrast serifs (Bodoni, Playfair) lose their defining detail in blur. Space Grotesk's smooth geometry matches the site's slow, organic motion design.
 
 ## Motion & Interaction
 - **Slow Drift**: Subtle, continuous movement in background elements to prevent static feel.
