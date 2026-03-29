@@ -5,6 +5,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronsDown, ArrowRight, ArrowLeft } from 'lucide-react';
+import module1Img from './assets/module1.png';
+import heroImg from './assets/hero.png';
+import module2Img from './assets/module2.png';
+import eyeVid from './assets/eye.mp4';
 
 function Navbar() {
   const [scrollState, setScrollState] = useState('top');
@@ -53,7 +57,7 @@ function Hero() {
         <img 
           alt="Intense close-up of a human face with deep expression, high contrast grainy film texture, dramatic teal and orange light leaks." 
           className="w-full h-full object-cover grayscale opacity-60 animate-slow-drift" 
-          src="./module1.png"
+          src={module1Img}
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-secondary/10"></div>
@@ -85,7 +89,7 @@ function ModuleOne() {
             <img 
               alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone, glowing electric teal highlights on her skin." 
               className="w-full h-full object-cover grayscale opacity-80 transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]" 
-              src="./hero.png"
+              src={heroImg}
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay"></div>
@@ -137,7 +141,7 @@ function ModuleTwo() {
             <img 
               alt="Close-up of human hands holding a worn leather journal, sunlight through a window creating sharp shadows and grainy sunset orange light." 
               className="w-full h-full object-cover grayscale opacity-80 transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]" 
-              src="./module2.png"
+              src={module2Img}
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
@@ -159,7 +163,7 @@ function Closer() {
           muted 
           playsInline
           className="w-full h-full object-cover grayscale animate-slow-drift" 
-          src="./eye.mp4"
+          src={eyeVid}
         />
       </div>
       {/* Top edge fade */}
