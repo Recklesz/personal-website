@@ -1,0 +1,17 @@
+# Treat all images and videos as binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.mov binary
+*.webm binary
+*.ico binary
+
+# Ensure web assets use LF line endings for consistency
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
