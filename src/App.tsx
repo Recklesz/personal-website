@@ -60,16 +60,16 @@ function Hero() {
         <div className="grainy-overlay"></div>
       </div>
       <div className="relative z-10 text-center px-6 mix-blend-screen">
-        <h1 className="font-headline text-[5rem] md:text-[8rem] font-black tracking-tighter text-on-surface leading-none mb-4">
+        <h1 className="font-headline text-[5rem] md:text-[8rem] font-black tracking-tighter text-[#D9CBB3] leading-none mb-4">
           <span className="inline-block animate-cinematic-reveal">The</span>{' '}
           <span className="inline-block animate-cinematic-reveal animation-delay-400">Craft</span>
         </h1>
-        <p className="font-body text-xl md:text-2xl font-light tracking-[0.2em] text-on-surface uppercase opacity-60 animate-cinematic-reveal animation-delay-800">
+        <p className="font-body text-xl md:text-2xl font-light tracking-[0.2em] text-[#D9CBB3] uppercase opacity-60 animate-cinematic-reveal animation-delay-800">
           The Human Resonance of AI
         </p>
       </div>
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-slow-pulse">
-        <ChevronsDown className="w-8 h-8 stroke-[1] text-on-surface opacity-50" />
+        <ChevronsDown className="w-8 h-8 stroke-[1] text-[#D9CBB3] opacity-50" />
       </div>
     </section>
   );
@@ -98,7 +98,7 @@ function ModuleOne() {
             Skylar:<br/>The Art of <span className="italic text-primary text-glow-warm">Conversation</span>
           </h2>
           <p className="font-body text-lg leading-relaxed text-on-surface-variant max-w-md mb-16 font-light">
-            Seeking the cadence of a soul within the digital echo. We refine the bridge between prompt and poetry, ensuring every interaction feels as weighted as a shared secret.
+            The AI partner for sales coaches. We elevate the art of conversation through immersive AI role-plays and deep analysis, refining the bridge between practice and mastery. Every simulation is designed to forge real-world resonance.
           </p>
           <div>
             <a href="https://app.getskylar.com/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-primary hover:border-primary transition-all duration-700">
@@ -122,7 +122,7 @@ function ModuleTwo() {
             Describy:<br/>The Art of <span className="italic text-secondary text-glow-cool">Listening</span>
           </h2>
           <p className="font-body text-lg leading-relaxed text-on-surface-variant max-w-md mb-16 font-light">
-            To hear what is unsaid. Mapping the micro-textures of human intent onto the canvas of understanding. The silent observation that precedes creation.
+            To hear what is unsaid. We conduct deep user interviews through AI, mapping the micro-textures of human intent to uncover hidden truths. The silent observation that transforms raw feedback into profound understanding.
           </p>
           <div>
             <a href="https://www.getdescriby.com/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 md:flex-row-reverse font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-primary hover:border-primary transition-all duration-700">
