@@ -306,25 +306,20 @@ function Footer() {
     <footer className="w-full min-h-[400px] flex items-end bg-background">
       <div className="flex flex-col justify-between items-start px-12 pb-16 w-full">
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-24">
-          <div className="font-headline font-black text-6xl md:text-8xl text-on-background opacity-10 leading-none select-none">
+          <div className="font-headline font-black text-6xl md:text-8xl text-on-background opacity-[0.06] leading-none select-none">
             THE CRAFT
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex gap-8">
-              <a className="font-headline text-sm tracking-widest uppercase text-on-background opacity-60 hover:text-secondary hover:tracking-[0.2em] transition-all duration-500" href="#">Instagram</a>
-              <a className="font-headline text-sm tracking-widest uppercase text-on-background opacity-60 hover:text-secondary hover:tracking-[0.2em] transition-all duration-500" href="#">Vimeo</a>
-              <a className="font-headline text-sm tracking-widest uppercase text-on-background opacity-60 hover:text-secondary hover:tracking-[0.2em] transition-all duration-500" href="#">Journal</a>
+              <a className="font-label text-xs tracking-[0.2em] uppercase text-on-background opacity-60 hover:text-secondary hover:tracking-[0.3em] transition-all duration-500" href="https://www.linkedin.com/in/ivelin-kozarev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a className="font-label text-xs tracking-[0.2em] uppercase text-on-background opacity-60 hover:text-secondary hover:tracking-[0.3em] transition-all duration-500" href="https://github.com/Recklesz" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center border-t-[0.5px] border-outline-variant/50 pt-8">
-          <p className="font-headline text-[10px] tracking-[0.2em] uppercase text-on-surface/40">
+        <div className="w-full border-t-[0.5px] border-outline-variant/50 pt-8">
+          <p className="font-label text-[10px] tracking-[0.3em] uppercase text-on-surface/40">
             © 2026 Ivelin Kozarev. All rights reserved.
           </p>
-          <div className="flex items-center gap-3">
-            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-slow-pulse"></span>
-            <span className="font-label text-[10px] tracking-[0.3em] uppercase opacity-30">System Active</span>
-          </div>
         </div>
       </div>
     </footer>
