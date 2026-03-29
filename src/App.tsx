@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronsDown, ArrowRight, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import module1Img from './assets/module1.png';
 import heroImg from './assets/hero.png';
 import module2Img from './assets/module2.png';
@@ -80,20 +81,40 @@ function Hero() {
 }
 
 function ModuleOne() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <section className="relative min-h-screen bg-background py-32 px-12 md:px-24">
       <div className="max-w-[1600px] mx-auto asymmetric-grid gap-24 items-center">
-        <div className="relative group">
+        <div className="relative group overflow-hidden">
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full"></div>
-          <div className="relative overflow-hidden aspect-[3/4]">
+          <div className="relative overflow-hidden aspect-[3/4] bg-black">
+            {/* Base Grayscale Image */}
             <img 
-              alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone, glowing electric teal highlights on her skin." 
-              className="w-full h-full object-cover grayscale opacity-80 transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]" 
+              alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone." 
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-60" 
               src={heroImg}
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay"></div>
-            <div className="grainy-overlay"></div>
+            
+            {/* Main Color Reveal Image - Uniform Opacity Fade */}
+            <motion.img 
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                scale: isHovered ? 1.05 : 1
+              }}
+              transition={{ 
+                opacity: { duration: isHovered ? 8 : 6, ease: [0.1, 0.9, 0.2, 1] },
+                scale: { duration: isHovered ? 12 : 10, ease: "easeOut" }
+              }}
+              alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone, glowing electric teal highlights on her skin." 
+              className="absolute inset-0 w-full h-full object-cover" 
+              src={heroImg}
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay pointer-events-none"></div>
+            <div className="grainy-overlay pointer-events-none"></div>
           </div>
         </div>
         <div className="flex flex-col justify-center">
@@ -105,9 +126,26 @@ function ModuleOne() {
             The AI partner for sales coaches. We elevate the art of conversation through immersive AI role-plays and deep analysis, refining the bridge between practice and mastery. Every simulation is designed to forge real-world resonance.
           </p>
           <div>
-            <a href="https://app.getskylar.com/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-primary hover:border-primary transition-all duration-700">
-              Explore Resonance
-              <ArrowRight className="w-4 h-4 stroke-[1] group-hover:translate-x-2 transition-transform duration-700" />
+            <a 
+              href="https://app.getskylar.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="group inline-flex items-center gap-6 font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-primary hover:border-primary transition-all duration-700"
+            >
+              <motion.div
+                animate={{ x: isHovered ? -20 : 0 }}
+                transition={{ duration: 3, ease: [0.1, 0.9, 0.2, 1] }}
+              >
+                <ArrowLeft className="w-4 h-4 stroke-[1]" />
+              </motion.div>
+              <motion.span
+                animate={{ x: isHovered ? 4 : 0 }}
+                transition={{ duration: 3, ease: [0.1, 0.9, 0.2, 1] }}
+              >
+                Explore Resonance
+              </motion.span>
             </a>
           </div>
         </div>
@@ -117,6 +155,8 @@ function ModuleOne() {
 }
 
 function ModuleTwo() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <section className="relative min-h-screen bg-surface py-32 px-12 md:px-24">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -129,23 +169,58 @@ function ModuleTwo() {
             To hear what is unsaid. We conduct deep user interviews through AI, mapping the micro-textures of human intent to uncover hidden truths. The silent observation that transforms raw feedback into profound understanding.
           </p>
           <div>
-            <a href="https://www.getdescriby.com/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 md:flex-row-reverse font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-primary hover:border-primary transition-all duration-700">
-              View Observations
-              <ArrowLeft className="w-4 h-4 stroke-[1] group-hover:-translate-x-2 transition-transform duration-700" />
+            <a 
+              href="https://www.getdescriby.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="group inline-flex items-center gap-6 font-label text-xs tracking-[0.2em] uppercase text-on-surface border-b-[0.5px] border-outline-variant pb-3 hover:text-secondary hover:border-secondary transition-all duration-700"
+            >
+              <motion.span
+                animate={{ x: isHovered ? -4 : 0 }}
+                transition={{ duration: 3, ease: [0.1, 0.9, 0.2, 1] }}
+              >
+                View Observations
+              </motion.span>
+              <motion.div
+                animate={{ x: isHovered ? 20 : 0 }}
+                transition={{ duration: 3, ease: [0.1, 0.9, 0.2, 1] }}
+              >
+                <ArrowRight className="w-4 h-4 stroke-[1]" />
+              </motion.div>
             </a>
           </div>
         </div>
-        <div className="relative group order-1 md:order-2">
+        <div className="relative group order-1 md:order-2 overflow-hidden">
           <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-primary/5 blur-[100px] rounded-full"></div>
-          <div className="relative overflow-hidden aspect-[4/5]">
+          <div className="relative overflow-hidden aspect-[4/5] bg-black">
+            {/* Base Grayscale Image */}
             <img 
-              alt="Close-up of human hands holding a worn leather journal, sunlight through a window creating sharp shadows and grainy sunset orange light." 
-              className="w-full h-full object-cover grayscale opacity-80 transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]" 
+              alt="Close-up of human hands holding a worn leather journal." 
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-60" 
               src={module2Img}
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
-            <div className="grainy-overlay"></div>
+
+            {/* Main Color Reveal Image - Uniform Opacity Fade */}
+            <motion.img 
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                scale: isHovered ? 1.05 : 1
+              }}
+              transition={{ 
+                opacity: { duration: isHovered ? 8 : 6, ease: [0.1, 0.9, 0.2, 1] },
+                scale: { duration: isHovered ? 12 : 10, ease: "easeOut" }
+              }}
+              alt="Close-up of human hands holding a worn leather journal, sunlight through a window creating sharp shadows and grainy sunset orange light." 
+              className="absolute inset-0 w-full h-full object-cover" 
+              src={module2Img}
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
+            <div className="grainy-overlay pointer-events-none"></div>
           </div>
         </div>
       </div>
