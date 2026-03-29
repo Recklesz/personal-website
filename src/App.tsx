@@ -151,20 +151,22 @@ function ModuleTwo() {
 
 function Closer() {
   return (
-    <section className="relative h-[614px] bg-on-surface text-background flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <img 
-          alt="Extreme close-up of a human eye, iris detail visible through a layer of heavy film grain and soft violet shadow." 
+    <section className="relative h-[614px] bg-background flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 opacity-60">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
           className="w-full h-full object-cover grayscale animate-slow-drift" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmp3OrZc7bfRuzVygCYNEy_P6xd2B-_NIo8EoJgHQA1jHvkOQ2UN-DOcXlM2gZY8oV0fK39iJ0H-S6DQ2N7-PiEvamsZMkEaM_NpH4d0vXWZt-HrzFoXneE_KvyS5wok5wK1IyfDOD4IKujKaI3y9qi5vlYJOT5_M121WzK9QVGapE9c_43qI8HcEnamM5G1N0P6U1sDdzdqr46vDrXILORt8aWCKcx0xrBf-0Gwn97tV9WW1YMCymWq0PTLPpc1nI-eKZlCwtEstF"
-          referrerPolicy="no-referrer"
+          src="/eye.mp4"
         />
       </div>
-      <div className="relative z-10 text-center max-w-2xl px-6">
-        <p className="font-headline text-3xl md:text-5xl font-light leading-relaxed italic text-on-surface opacity-80">
-          "We do not build machines. We build mirrors."
-        </p>
-      </div>
+      {/* Top edge fade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-transparent"></div>
+      {/* Bottom edge fade */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
+      <div className="grainy-overlay"></div>
     </section>
   );
 }
