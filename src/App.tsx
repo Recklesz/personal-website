@@ -5,11 +5,44 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronsDown, ArrowRight, ArrowLeft } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import module1Img from './assets/module1.png';
 import heroImg from './assets/hero.png';
 import module2Img from './assets/module2.png';
 import eyeVid from './assets/eye.mp4';
+
+function waitForImage(src: string) {
+  return new Promise<void>((resolve) => {
+    const image = new Image();
+    let settled = false;
+
+    const finish = () => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      resolve();
+    };
+
+    const decodeAndFinish = () => {
+      if (typeof image.decode === 'function') {
+        image.decode().catch(() => undefined).finally(finish);
+        return;
+      }
+
+      finish();
+    };
+
+    image.onload = decodeAndFinish;
+    image.onerror = finish;
+    image.src = src;
+
+    if (image.complete) {
+      decodeAndFinish();
+    }
+  });
+}
 
 function Navbar() {
   const [scrollState, setScrollState] = useState('top');
@@ -55,36 +88,40 @@ function Navbar() {
   );
 }
 
-function Hero() {
+function Hero({ ready }: { ready: boolean }) {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-surface">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           alt="Intense close-up of a human face with deep expression, high contrast grainy film texture, dramatic teal and orange light leaks." 
-          className="w-full h-full object-cover grayscale opacity-60 animate-slow-drift" 
+          className={`w-full h-full object-cover grayscale transition-opacity duration-700 ${
+            ready ? 'opacity-60 animate-slow-drift' : 'opacity-0'
+          }`}
           src={module1Img}
+          loading="eager"
+          fetchPriority="high"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-secondary/10"></div>
-        <div className="grainy-overlay"></div>
+        <div className={`absolute inset-0 bg-gradient-to-tr from-background via-transparent to-secondary/10 transition-opacity duration-700 ${ready ? 'opacity-100' : 'opacity-0'}`}></div>
+        <div className={`grainy-overlay transition-opacity duration-700 ${ready ? 'opacity-100' : 'opacity-0'}`}></div>
       </div>
-      <div className="relative z-10 text-center px-6 mix-blend-screen">
+      <div className={`relative z-10 text-center px-6 mix-blend-screen transition-opacity duration-300 ${ready ? 'opacity-100' : 'opacity-0'}`}>
         <h1 className="font-headline text-[5rem] md:text-[8rem] font-black tracking-tighter text-[#D9CBB3] leading-none mb-4">
-          <span className="inline-block animate-cinematic-reveal">The</span>{' '}
-          <span className="inline-block animate-cinematic-reveal animation-delay-400">Craft</span>
+          <span className={`inline-block ${ready ? 'animate-cinematic-reveal' : 'opacity-0'}`}>The</span>{' '}
+          <span className={`inline-block ${ready ? 'animate-cinematic-reveal animation-delay-400' : 'opacity-0'}`}>Craft</span>
         </h1>
-        <p className="font-body text-xl md:text-2xl font-light tracking-[0.2em] text-[#D9CBB3] uppercase opacity-60 animate-cinematic-reveal animation-delay-800">
+        <p className={`font-body text-xl md:text-2xl font-light tracking-[0.2em] text-[#D9CBB3] uppercase opacity-60 ${ready ? 'animate-cinematic-reveal animation-delay-800' : 'opacity-0'}`}>
           The Human Resonance of AI
         </p>
       </div>
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-slow-pulse">
+      <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${ready ? 'opacity-100 animate-slow-pulse' : 'opacity-0'}`}>
         <ChevronsDown className="w-8 h-8 stroke-[1] text-[#D9CBB3] opacity-50" />
       </div>
     </section>
   );
 }
 
-function ModuleOne() {
+function ModuleOne({ shouldLoad }: { shouldLoad: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -97,7 +134,8 @@ function ModuleOne() {
             <img 
               alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone." 
               className="absolute inset-0 w-full h-full object-cover grayscale opacity-60" 
-              src={heroImg}
+              src={shouldLoad ? heroImg : undefined}
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             
@@ -114,7 +152,8 @@ function ModuleOne() {
               }}
               alt="Cinematic grainy portrait of a woman talking into a classic broadcast microphone, glowing electric teal highlights on her skin." 
               className="absolute inset-0 w-full h-full object-cover" 
-              src={heroImg}
+              src={shouldLoad ? heroImg : undefined}
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay pointer-events-none"></div>
@@ -158,7 +197,7 @@ function ModuleOne() {
   );
 }
 
-function ModuleTwo() {
+function ModuleTwo({ shouldLoad }: { shouldLoad: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -203,7 +242,8 @@ function ModuleTwo() {
             <img 
               alt="Close-up of human hands holding a worn leather journal." 
               className="absolute inset-0 w-full h-full object-cover grayscale opacity-60" 
-              src={module2Img}
+              src={shouldLoad ? module2Img : undefined}
+              decoding="async"
               referrerPolicy="no-referrer"
             />
 
@@ -220,7 +260,8 @@ function ModuleTwo() {
               }}
               alt="Close-up of human hands holding a worn leather journal, sunlight through a window creating sharp shadows and grainy sunset orange light." 
               className="absolute inset-0 w-full h-full object-cover" 
-              src={module2Img}
+              src={shouldLoad ? module2Img : undefined}
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
@@ -232,7 +273,7 @@ function ModuleTwo() {
   );
 }
 
-function Closer() {
+function Closer({ shouldLoad }: { shouldLoad: boolean }) {
   return (
     <section className="relative h-[614px] bg-background flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 opacity-60">
@@ -241,8 +282,9 @@ function Closer() {
           loop 
           muted 
           playsInline
+          preload={shouldLoad ? 'auto' : 'none'}
           className="w-full h-full object-cover grayscale animate-slow-drift" 
-          src={eyeVid}
+          src={shouldLoad ? eyeVid : undefined}
         />
       </div>
       {/* Top edge fade */}
@@ -285,14 +327,30 @@ function Footer() {
 }
 
 export default function App() {
+  const [heroReady, setHeroReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void waitForImage(module1Img).then(() => {
+      if (!cancelled) {
+        setHeroReady(true);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
       <main className="relative">
-        <Hero />
-        <ModuleOne />
-        <ModuleTwo />
-        <Closer />
+        <Hero ready={heroReady} />
+        <ModuleOne shouldLoad={heroReady} />
+        <ModuleTwo shouldLoad={heroReady} />
+        <Closer shouldLoad={heroReady} />
       </main>
       <Footer />
     </div>
