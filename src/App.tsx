@@ -88,33 +88,38 @@ function Navbar() {
   );
 }
 
-function Hero({ ready }: { ready: boolean }) {
+function Hero({ imageLoaded, effectsReady }: { imageLoaded: boolean; effectsReady: boolean }) {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-surface">
+      {/* Loading Indicator */}
+      <div className={`absolute inset-0 z-20 flex items-center justify-center transition-opacity duration-1000 ${imageLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className="w-48 h-[1px] bg-gradient-to-r from-transparent via-on-surface/40 to-transparent animate-shimmer-sweep"></div>
+      </div>
+
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           alt="Intense close-up of a human face with deep expression, high contrast grainy film texture, dramatic teal and orange light leaks." 
-          className={`w-full h-full object-cover grayscale transition-opacity duration-700 ${
-            ready ? 'opacity-60 animate-slow-drift' : 'opacity-0'
-          }`}
+          className={`w-full h-full object-cover grayscale transition-opacity duration-1000 ${
+            imageLoaded ? 'opacity-60' : 'opacity-0'
+          } ${effectsReady ? 'animate-slow-drift' : ''}`}
           src={module1Img}
           loading="eager"
           fetchPriority="high"
           referrerPolicy="no-referrer"
         />
-        <div className={`absolute inset-0 bg-gradient-to-tr from-background via-transparent to-secondary/10 transition-opacity duration-700 ${ready ? 'opacity-100' : 'opacity-0'}`}></div>
-        <div className={`grainy-overlay transition-opacity duration-700 ${ready ? 'opacity-100' : 'opacity-0'}`}></div>
+        <div className={`absolute inset-0 bg-gradient-to-tr from-background via-transparent to-secondary/10 transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}></div>
+        <div className={`grainy-overlay transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}></div>
       </div>
-      <div className={`relative z-10 text-center px-6 mix-blend-screen transition-opacity duration-300 ${ready ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`relative z-10 text-center px-6 mix-blend-screen transition-opacity duration-500 ${effectsReady ? 'opacity-100' : 'opacity-0'}`}>
         <h1 className="font-headline text-[5rem] md:text-[8rem] font-black tracking-tighter text-[#D9CBB3] leading-none mb-4">
-          <span className={`inline-block ${ready ? 'animate-cinematic-reveal' : 'opacity-0'}`}>The</span>{' '}
-          <span className={`inline-block ${ready ? 'animate-cinematic-reveal animation-delay-400' : 'opacity-0'}`}>Craft</span>
+          <span className={`inline-block ${effectsReady ? 'animate-cinematic-reveal' : 'opacity-0'}`}>The</span>{' '}
+          <span className={`inline-block ${effectsReady ? 'animate-cinematic-reveal animation-delay-400' : 'opacity-0'}`}>Craft</span>
         </h1>
-        <p className={`font-body text-xl md:text-2xl font-light tracking-[0.2em] text-[#D9CBB3] uppercase opacity-60 ${ready ? 'animate-cinematic-reveal animation-delay-800' : 'opacity-0'}`}>
+        <p className={`font-body text-xl md:text-2xl font-light tracking-[0.2em] text-[#D9CBB3] uppercase opacity-60 ${effectsReady ? 'animate-cinematic-reveal animation-delay-800' : 'opacity-0'}`}>
           The Human Resonance of AI
         </p>
       </div>
-      <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${ready ? 'opacity-100 animate-slow-pulse' : 'opacity-0'}`}>
+      <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-opacity duration-1000 ${effectsReady ? 'opacity-100 animate-slow-pulse' : 'opacity-0'}`}>
         <ChevronsDown className="w-8 h-8 stroke-[1] text-[#D9CBB3] opacity-50" />
       </div>
     </section>
@@ -327,14 +332,21 @@ function Footer() {
 }
 
 export default function App() {
-  const [heroReady, setHeroReady] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [effectsReady, setEffectsReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
     void waitForImage(module1Img).then(() => {
       if (!cancelled) {
-        setHeroReady(true);
+        setImageLoaded(true);
+        // Add a delay before starting the cinematic effects
+        setTimeout(() => {
+          if (!cancelled) {
+            setEffectsReady(true);
+          }
+        }, 800);
       }
     });
 
@@ -347,10 +359,10 @@ export default function App() {
     <div className="min-h-screen">
       <Navbar />
       <main className="relative">
-        <Hero ready={heroReady} />
-        <ModuleOne shouldLoad={heroReady} />
-        <ModuleTwo shouldLoad={heroReady} />
-        <Closer shouldLoad={heroReady} />
+        <Hero imageLoaded={imageLoaded} effectsReady={effectsReady} />
+        <ModuleOne shouldLoad={imageLoaded} />
+        <ModuleTwo shouldLoad={imageLoaded} />
+        <Closer shouldLoad={imageLoaded} />
       </main>
       <Footer />
     </div>

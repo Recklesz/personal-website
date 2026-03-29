@@ -111,3 +111,12 @@ body::before {
 .animation-delay-800 {
   animation-delay: 800ms;
 }
+
+@keyframes shimmer-sweep {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.animate-shimmer-sweep {
+  background-size: 200% 100%;
+  animation: shimmer-sweep 2.5s infinite alternate ease-in-out;
+}
