@@ -99,9 +99,9 @@ function Hero({ imageLoaded, effectsReady }: { imageLoaded: boolean; effectsRead
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           alt="Intense close-up of a human face with deep expression, high contrast grainy film texture, dramatic teal and orange light leaks." 
-          className={`w-full h-full object-cover grayscale transition-opacity duration-1000 ${
+          className={`w-full h-full object-cover grayscale transition-opacity duration-1000 animate-slow-drift ${
             imageLoaded ? 'opacity-60' : 'opacity-0'
-          } ${effectsReady ? 'animate-slow-drift' : ''}`}
+          }`}
           src={module1Img}
           loading="eager"
           fetchPriority="high"
