@@ -10,6 +10,7 @@ import module1Img from './assets/module1.png';
 import heroImg from './assets/hero.png';
 import module2Img from './assets/module2.png';
 import eyeVid from './assets/eye.mp4';
+import ColorTrailCanvas from './components/ColorTrailCanvas';
 
 function waitForImage(src: string) {
   return new Promise<void>((resolve) => {
@@ -161,6 +162,7 @@ function ModuleOne({ shouldLoad }: { shouldLoad: boolean }) {
               decoding="async"
               referrerPolicy="no-referrer"
             />
+            <ColorTrailCanvas src={heroImg} enabled={shouldLoad} />
             <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay pointer-events-none"></div>
             <div className="grainy-overlay pointer-events-none"></div>
           </div>
@@ -269,6 +271,7 @@ function ModuleTwo({ shouldLoad }: { shouldLoad: boolean }) {
               decoding="async"
               referrerPolicy="no-referrer"
             />
+            <ColorTrailCanvas src={module2Img} enabled={shouldLoad} />
             <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
             <div className="grainy-overlay pointer-events-none"></div>
           </div>
