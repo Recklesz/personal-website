@@ -107,17 +107,17 @@ function ColorTrailCanvas({ src, enabled }: ColorTrailCanvasProps) {
   ) => {
     const age = (now - point.born) / TRAIL_DURATION;
     const fade = Math.max(0, 1 - age);
-    const radius = (10 + point.speed * 34 + age * (12 + point.speed * 42)) * dpr;
-    const alpha = fade * fade * (0.28 + point.speed * 0.72);
-    const tail = radius * point.speed * (0.55 + age * 0.3);
+    const radius = (18 + point.speed * 7 + age * (20 + point.speed * 10)) * dpr;
+    const alpha = fade * fade * (0.3 + point.speed * 0.42);
+    const drift = radius * point.speed * (0.35 + age * 1.05);
 
     ctx.save();
     ctx.translate(
-      point.x * dpr - point.directionX * tail,
-      point.y * dpr - point.directionY * tail,
+      point.x * dpr + point.directionX * drift,
+      point.y * dpr + point.directionY * drift,
     );
     ctx.rotate(Math.atan2(point.directionY, point.directionX));
-    ctx.scale(1 + point.speed * 1.25, 0.7 - point.speed * 0.12);
+    ctx.scale(1 + point.speed * 2.15 + age * point.speed * 0.75, 0.72 - point.speed * 0.14);
 
     const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, radius);
     gradient.addColorStop(0, `rgba(255,255,255,${alpha})`);
@@ -161,8 +161,12 @@ function ColorTrailCanvas({ src, enabled }: ColorTrailCanvasProps) {
     if (pointsRef.current.length > 0) {
       ctx.save();
       ctx.globalCompositeOperation = 'source-in';
-      ctx.filter = 'saturate(1.2) contrast(1.04)';
+      ctx.filter = 'saturate(0.72) contrast(0.96) sepia(0.16)';
       drawImageCover(ctx, image, size.width, size.height);
+      ctx.globalCompositeOperation = 'source-atop';
+      ctx.filter = 'none';
+      ctx.fillStyle = 'rgba(217, 203, 179, 0.12)';
+      ctx.fillRect(0, 0, size.width, size.height);
       ctx.restore();
 
       rafRef.current = window.requestAnimationFrame(draw);
