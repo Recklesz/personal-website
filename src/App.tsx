@@ -11,6 +11,7 @@ import heroImg from './assets/hero.png';
 import module2Img from './assets/module2.png';
 import eyeVid from './assets/eye.mp4';
 import ColorTrailCanvas from './components/ColorTrailCanvas';
+import GalleryPage from './GalleryPage';
 
 function waitForImage(src: string) {
   return new Promise<void>((resolve) => {
@@ -332,6 +333,7 @@ function Footer() {
 export default function App() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [effectsReady, setEffectsReady] = useState(false);
+  const isGalleryRoute = window.location.pathname.endsWith('/gallery');
 
   useEffect(() => {
     let cancelled = false;
@@ -352,6 +354,10 @@ export default function App() {
       cancelled = true;
     };
   }, []);
+
+  if (isGalleryRoute) {
+    return <GalleryPage />;
+  }
 
   return (
     <div className="min-h-screen">
