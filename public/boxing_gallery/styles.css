@@ -1,0 +1,104 @@
+:root{font-family:'DM Sans',Arial,sans-serif;font-synthesis:none;--vh:100svh;color-scheme:dark}*{box-sizing:border-box}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}body{margin:0;background:#090a0b;color:#f1f0e9;overflow-x:clip}button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}button{font:inherit;color:inherit;cursor:pointer;border:0}a{color:inherit}button:focus-visible,a:focus-visible{outline:2px solid currentColor;outline-offset:6px}[hidden]{display:none!important}::selection{background:#f1f0e9;color:#131313}
+#site-chrome{position:fixed;z-index:40;inset:0 0 auto;height:86px;padding:0 4vw;display:flex;align-items:center;pointer-events:none;color:#fff;mix-blend-mode:difference}#site-chrome>*{pointer-events:auto}.brand{font-size:21px;font-weight:700;letter-spacing:-.075em;text-decoration:none;line-height:1}.brand span{font-size:9px;vertical-align:top;letter-spacing:0;margin-left:4px}.sound-access{position:absolute;right:4vw;width:36px;height:36px;opacity:0;pointer-events:none;background:transparent;padding:7px}.sound-access:focus-visible{opacity:1;pointer-events:auto}.sound-access svg{width:100%;height:100%}
+#gallery-page,#top,#lens,#world{position:fixed;inset:0;width:100%;height:var(--vh)}#gallery-page{overflow:hidden;background:#090a0b}#lens{overflow:hidden;transform-origin:center;will-change:transform,clip-path}#world{position:absolute;overflow:visible}.chapter{position:absolute;left:0;top:0;width:100vw;will-change:transform}.panel{height:var(--vh);width:100vw;position:relative;overflow:hidden;isolation:isolate}.photo-frame{margin:0;position:absolute;overflow:hidden}.photo-frame img{display:block;width:100%;height:100%;object-fit:cover;will-change:transform}.film-screen{position:absolute;overflow:hidden;background:#090a0b;isolation:isolate}.film-screen video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}.film-control{position:absolute;bottom:18px;right:18px;width:36px;height:36px;border-radius:50%;background:#0a0a0a55;color:white;backdrop-filter:blur(8px);display:grid;place-items:center;opacity:0;transition:opacity .2s;z-index:4}.film-screen:hover .film-control,.film-control:focus-visible,.film-control.is-paused{opacity:1}.film-control svg{width:16px;height:16px}.play-symbol{display:none}.is-paused .play-symbol{display:block}.is-paused .pause-symbol{display:none}
+.fighter-name{position:absolute;z-index:5;font-size:clamp(84px,13vw,220px);font-weight:500;line-height:.79;letter-spacing:-.078em;margin:0;color:#f1f0e9;pointer-events:none}.name-low{left:5vw;bottom:4.5vh}.name-high{left:6vw;top:15vh;font-size:clamp(84px,14.5vw,235px)}.name-side{writing-mode:vertical-rl;transform:rotate(180deg);left:4vw;top:19vh;font-size:clamp(36px,5.7vw,85px)}.name-wide{left:6vw;bottom:10vh;font-size:clamp(100px,19vw,290px);mix-blend-mode:difference}.name-stack{right:5vw;bottom:11vh;font-size:clamp(70px,10.5vw,160px)}
+.layout-cinema .film-screen{left:0;top:11%;width:100%;height:76%}.layout-offset .photo-frame{left:12%;top:10%;width:43%;height:80%}.layout-offset:after{content:'';position:absolute;top:14%;bottom:14%;right:15%;width:1px;background:#2222}.layout-edge .photo-frame{inset:0}.layout-edge .photo-frame img{object-position:center 40%}.layout-duo .photo-0{left:6%;top:13%;width:52%;height:61%;z-index:2}.layout-duo .photo-1{right:6%;bottom:6%;width:30%;height:63%}.layout-portrait .photo-frame{right:0;top:0;width:75%;height:100%}.layout-portrait .photo-frame img{object-position:44% center}.layout-inset .film-screen{left:11%;top:22%;width:78%;height:58%;box-shadow:0 35px 100px #0003}.layout-asymmetric .film-screen{right:5%;top:20%;width:78%;height:64%}.layout-split .photo-0{left:0;top:0;width:57%;height:100%}.layout-split .photo-1{right:4%;top:18%;width:32%;height:66%}.layout-negative .photo-frame{right:11%;top:17%;width:62%;height:66%;box-shadow:0 20px 80px #0001}.layout-tall-film .film-screen{left:14%;top:9%;width:min(44vw,calc(var(--vh)*.656));height:auto;aspect-ratio:4/5}.portrait-film video{object-fit:cover;object-position:center bottom}
+.chapter-usyk .layout-edge .photo-frame{inset:7% 0 0 18%}.chapter-usyk .layout-duo .photo-1 img{object-position:40% center}.chapter-canelo .layout-portrait .photo-frame img{object-position:34% center}.chapter-canelo .layout-duo .photo-0{left:0;top:0;width:68%;height:100%}.chapter-canelo .layout-duo .photo-1{right:4%;bottom:10%;width:38%;height:42%;box-shadow:0 30px 70px #0007}.chapter-loma .layout-split .photo-0 img{object-position:29% center}.chapter-loma .layout-negative .photo-frame{left:13%;right:auto;width:54%;height:64%;top:19%}.chapter-inoue .layout-portrait .photo-frame{width:49%;right:9%;top:8%;height:86%}.chapter-inoue .layout-duo .photo-0{left:0;top:12%;width:66%;height:78%}.chapter-inoue .layout-duo .photo-1{right:8%;top:22%;width:27%;height:63%}.chapter-benavidez .layout-edge .photo-frame{inset:0 19% 0 19%}.chapter-benavidez .layout-edge .photo-frame img{object-position:center 30%}.chapter-benavidez .layout-split .photo-0{left:9%;top:9%;width:40%;height:82%}.chapter-benavidez .layout-split .photo-1{right:7%;top:28%;width:36%;height:54%}.chapter-itauma .layout-edge .photo-frame{inset:0 0 0 30%}.chapter-itauma .name-low{font-size:clamp(90px,13vw,205px);line-height:.85;bottom:9vh}.chapter-itauma .layout-duo .photo-0{left:8%;top:10%;width:33%;height:80%}.chapter-itauma .layout-duo .photo-1{right:5%;bottom:14%;width:50%;height:55%}
+#defense-surface{position:fixed;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;z-index:90;cursor:crosshair;touch-action:pan-y}#defense-surface:focus-visible{outline:none}#punch-stage{position:fixed;inset:0;pointer-events:none;z-index:91;overflow:hidden;visibility:hidden}#punch-stage.active{visibility:visible}.glove{position:absolute;left:0;top:0;width:min(78vw,1050px);height:min(78vw,1050px);object-fit:contain;transform-origin:center;opacity:0;filter:drop-shadow(20px 32px 25px #0008);will-change:transform,opacity}#impact-light{position:absolute;inset:0;background:#eee8dd;opacity:0;pointer-events:none}#dodge-vignette{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 35%,transparent 25%,#0009 110%);opacity:0;pointer-events:none;z-index:92}#fractures{position:fixed;inset:0;z-index:93;width:100%;height:100%;pointer-events:none;opacity:0}#feedback{position:fixed;left:50%;bottom:12%;transform:translateX(-50%);padding:17px 24px;background:#101010e8;color:#eeeae2;border:1px solid #ffffff24;backdrop-filter:blur(12px);z-index:94;pointer-events:none;text-align:center;width:max-content;max-width:calc(100vw - 36px)}#feedback strong{font-size:18px;font-weight:500;letter-spacing:-.4px;display:block}#feedback span{display:block;font-size:13px;opacity:.75;margin-top:7px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+@media(max-width:760px){#site-chrome{height:70px;padding:0 6vw}.brand{font-size:19px}.fighter-name{font-size:clamp(80px,24vw,150px)}.name-low{left:6vw;bottom:17vh}.name-high{font-size:24vw;left:6vw;top:19vh}.name-side{font-size:11vw;left:5vw;top:17vh}.name-wide{font-size:28vw;left:5vw;bottom:15vh}.name-stack{font-size:17vw;left:6vw;right:auto;bottom:17vh}.layout-cinema .film-screen{top:18%;height:58%}.layout-cinema video{object-position:center}.layout-offset .photo-frame{left:8%;top:15%;width:72%;height:66%}.layout-offset:after{right:9%}.layout-edge .photo-frame img{object-position:center}.layout-duo .photo-0{left:0;top:12%;width:82%;height:46%}.layout-duo .photo-1{right:5%;bottom:9%;width:48%;height:47%}.layout-portrait .photo-frame{width:86%;height:80%;top:14%;right:0}.layout-inset .film-screen{left:5%;top:27%;width:90%;height:45%}.layout-asymmetric .film-screen{right:0;top:24%;width:80%;height:57%}.layout-split .photo-0{width:82%;height:64%;top:6%}.layout-split .photo-1{right:4%;top:auto;bottom:8%;width:49%;height:45%}.layout-negative .photo-frame{right:4%;top:29%;width:84%;height:43%}.layout-tall-film .film-screen{left:11%;top:15%;width:76%;height:auto;aspect-ratio:4/5}.chapter-usyk .layout-edge .photo-frame{inset:15% 0 10% 5%}.chapter-canelo .layout-portrait .photo-frame img{object-position:34% center}.chapter-canelo .layout-duo .photo-0{width:100%;height:75%}.chapter-canelo .layout-duo .photo-1{width:68%;height:30%;bottom:10%}.chapter-loma .layout-negative .photo-frame{left:7%;top:22%;width:78%;height:56%}.chapter-inoue .layout-portrait .photo-frame{width:76%;height:73%;top:12%;right:0}.chapter-inoue .layout-duo .photo-0{width:90%;height:60%;top:10%}.chapter-inoue .layout-duo .photo-1{right:5%;top:45%;width:44%;height:43%}.chapter-benavidez .layout-edge .photo-frame{inset:8% 5%}.chapter-benavidez .layout-split .photo-0{left:4%;top:8%;width:73%;height:63%}.chapter-benavidez .layout-split .photo-1{right:0;top:auto;bottom:8%;width:58%;height:42%}.chapter-itauma .layout-edge .photo-frame{inset:0}.chapter-itauma .name-low{font-size:23vw;bottom:11vh;text-shadow:0 2px 25px #0006}.chapter-itauma .layout-duo .photo-0{left:5%;top:9%;width:67%;height:62%}.chapter-itauma .layout-duo .photo-1{right:0;bottom:11%;width:75%;height:38%}.glove{width:155vw;height:155vw}#feedback{bottom:15%;padding:14px 20px}#feedback strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.film-control{transition:none}.photo-frame img{will-change:auto}}
+
+.chapter-benavidez .layout-negative .photo-frame{left:25%;right:auto;top:10%;width:50%;height:80%}.chapter-benavidez .layout-negative img{object-fit:contain}
+
+/* Keep each exchange intact: both fighters, gloves and ring remain in frame. */
+.fight-chapter .photo-frame img,.fight-chapter .film-screen video{object-fit:contain;object-position:center;transform:none}
+.layout-panorama .photo-frame{left:0;top:14%;width:100%;height:72%}
+.layout-ringside .photo-frame{left:18%;top:18%;width:78%;height:71%}
+.layout-floating .photo-frame{left:7%;top:10%;width:74%;height:80%}
+.layout-full-bout .photo-frame{inset:0}
+.layout-aperture .photo-frame{left:8%;top:19%;width:84%;height:62%}
+.chapter-canelo .layout-ringside .photo-frame{left:12%;top:27%;width:83%;height:66%}
+.chapter-canelo .name-high{top:15vh}
+.chapter-inoue .layout-ringside .photo-frame{left:0;top:12%;width:87%;height:78%}
+.chapter-benavidez .layout-floating .photo-frame{left:23%;width:72%;top:8%;height:84%}
+.chapter-itauma .layout-ringside .photo-frame{left:22%;top:10%;width:76%;height:75%}
+.chapter-itauma .layout-aperture .photo-frame{left:4%;top:12%;width:92%;height:76%}
+@media(max-width:760px){
+  .fight-chapter .film-screen{left:0;right:auto;top:17%;width:100%;height:62%}
+  .fight-chapter .layout-panorama .photo-frame{left:0;top:12%;width:100%;height:76%}
+  .fight-chapter .layout-ringside .photo-frame{left:4%;top:23%;width:96%;height:62%}
+  .fight-chapter .layout-floating .photo-frame{left:0;top:12%;width:94%;height:67%}
+  .fight-chapter .layout-full-bout .photo-frame{inset:0}
+  .fight-chapter .layout-aperture .photo-frame{left:3%;top:16%;width:94%;height:68%}
+  .chapter-canelo .name-high{top:18vh}
+  .chapter-itauma .name-low{bottom:12vh}
+}
+.chapter-benavidez .film-screen{left:7%;top:18%;width:min(78vw,960px);height:auto;aspect-ratio:16/9}
+@media(max-width:760px){.chapter-benavidez .film-screen{left:0;top:30%;width:100%;height:auto;aspect-ratio:16/9}}
+.chapter-itauma .film-screen{left:50%;top:8%;width:calc(var(--vh)*.672);max-width:80vw;height:84%;transform:translateX(-50%)}
+@media(max-width:760px){.chapter-itauma .film-screen{top:15%;width:82vw;max-width:none;height:auto;aspect-ratio:4/5}}
+.layout-upright .photo-frame{left:22%;top:6%;width:56%;height:88%}
+@media(max-width:760px){.fight-chapter .layout-upright .photo-frame{left:4%;top:10%;width:92%;height:80%}}
+
+/* Preserve the detail of smaller archival fight photographs. */
+.fight-chapter .native-size img{object-fit:scale-down}
+
+/* One continuous exhibition surface; artworks have space around them. */
+body{background:#0b0c0e}
+#gallery-page{background:#0b0c0e}
+#lens{overflow:visible;transform-origin:50% 50%;will-change:transform}
+#world{opacity:0}
+.chapter{color:#252625}
+.panel{position:absolute;background:transparent;overflow:visible}
+.fight-chapter .photo-frame,.fight-chapter .film-screen{box-shadow:none}
+.fight-chapter .photo-frame img{filter:drop-shadow(0 10px 16px #16171317)}
+.fight-chapter .layout-cinema .film-screen{left:9%;right:auto;top:17%;width:82%;height:66%}
+.fight-chapter .layout-inset .film-screen{left:14%;right:auto;top:22%;width:72%;height:56%}
+.fight-chapter .layout-asymmetric .film-screen{left:18%;right:auto;top:18%;width:77%;height:65%}
+.fight-chapter .layout-panorama .photo-frame{left:8%;top:12%;width:84%;height:76%}
+.fight-chapter .layout-ringside .photo-frame{left:25%;top:14%;width:67%;height:72%}
+.fight-chapter .layout-floating .photo-frame{left:5%;top:12%;width:69%;height:76%}
+.fight-chapter .layout-full-bout .photo-frame{inset:auto;left:8%;top:8%;width:84%;height:84%}
+.fight-chapter .layout-aperture .photo-frame{left:16%;top:16%;width:68%;height:68%}
+.fight-chapter .layout-upright .photo-frame{left:28%;top:6%;width:44%;height:88%}
+.fight-chapter .fighter-name{left:9%;right:auto;top:auto;bottom:7%;font-size:clamp(24px,3.7vw,58px);font-weight:500;line-height:.94;letter-spacing:-.065em;writing-mode:horizontal-tb;transform:none;color:#292a28;mix-blend-mode:normal;text-shadow:none}
+.chapter-loma .fighter-name{left:6%;bottom:12%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:clamp(24px,3.2vw,48px)}
+.chapter-canelo .fighter-name{left:9%;top:12%;bottom:auto}
+.chapter-inoue .fighter-name{left:9%;bottom:6%;font-size:clamp(32px,5vw,72px)}
+.chapter-itauma .fighter-name{left:9%;bottom:9%;font-size:clamp(25px,4vw,60px)}
+.chapter-benavidez .layout-cinema .film-screen{left:10%;top:19%;width:min(78vw,1000px);height:auto;aspect-ratio:16/9}
+.chapter-itauma .layout-inset .film-screen{left:50%;top:10%;width:calc(var(--vh)*.64);max-width:76vw;height:80%;transform:translateX(-50%)}
+#site-chrome{height:112px;mix-blend-mode:difference;color:#f3efe7}
+#gallery-wordmark{position:absolute;left:0;top:0;width:min(91vw,1140px);height:auto;aspect-ratio:1.78;transform-origin:0 0;will-change:transform;line-height:1;letter-spacing:0;background:transparent;outline-offset:-7px}
+#gallery-wordmark canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none}
+#gallery-wordmark.shader-ready canvas{opacity:1}
+#gallery-wordmark.shader-ready .title-fallback{opacity:0}
+#gallery-wordmark .title-fallback{position:absolute;inset:18% 8% 18%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;pointer-events:none}
+#gallery-wordmark .title-fallback span{display:block;font-family:'DM Sans',Arial,sans-serif;font-weight:700;font-size:min(18.6vw,233px);line-height:.84;letter-spacing:-.04em;margin:0;color:#f4f0e7;vertical-align:baseline}
+#gallery-wordmark canvas,#gallery-wordmark .title-fallback{transition:opacity .22s ease}
+@media(prefers-reduced-motion:reduce){#gallery-wordmark canvas,#gallery-wordmark .title-fallback{transition:none}}
+#gallery-wordmark.is-docked{cursor:pointer}
+@media(max-width:760px){
+  #site-chrome{height:94px}
+  .fight-chapter .layout-cinema .film-screen{left:4%;top:22%;width:92%;height:56%}
+  .fight-chapter .layout-inset .film-screen{left:8%;top:23%;width:84%;height:54%}
+  .fight-chapter .layout-asymmetric .film-screen{left:7%;top:24%;width:90%;height:52%}
+  .fight-chapter .layout-panorama .photo-frame{left:4%;top:15%;width:92%;height:70%}
+  .fight-chapter .layout-ringside .photo-frame{left:12%;top:20%;width:83%;height:60%}
+  .fight-chapter .layout-floating .photo-frame{left:4%;top:15%;width:86%;height:70%}
+  .fight-chapter .layout-full-bout .photo-frame{left:3%;top:10%;width:94%;height:80%}
+  .fight-chapter .layout-aperture .photo-frame{left:9%;top:21%;width:82%;height:58%}
+  .fight-chapter .layout-upright .photo-frame{left:13%;top:12%;width:74%;height:76%}
+  .fight-chapter .fighter-name{left:7%;top:auto;bottom:17%;font-size:31px}
+  .chapter-loma .fighter-name{left:4%;bottom:19%;font-size:27px}
+  .chapter-canelo .fighter-name{top:20%;bottom:auto}
+  .chapter-inoue .fighter-name{bottom:13%;font-size:45px}
+  .chapter-itauma .fighter-name{bottom:16%;font-size:33px}
+  .chapter-benavidez .layout-cinema .film-screen{left:5%;top:28%;width:90%;height:auto;aspect-ratio:16/9}
+  .chapter-itauma .layout-inset .film-screen{left:50%;top:16%;width:76vw;max-width:76vw;height:auto;aspect-ratio:4/5}
+}
+@media(prefers-reduced-motion:reduce){#gallery-wordmark,#lens{will-change:auto}.fight-chapter .photo-frame img{filter:none}}
+
+/* Individual hanging positions stay fixed as the camera scrolls through a fighter. */
+.fight-chapter .panel[data-hung] .photo-frame{inset:auto;left:var(--art-left);top:var(--art-top);width:var(--art-width);height:var(--art-height)}
